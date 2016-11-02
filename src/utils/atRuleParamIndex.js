@@ -7,7 +7,7 @@
  */
 export default function (atRule: postcss$atRule) {
   // Initial 1 is for the `@`
-  let index = 1 + atRule.name.length
+  let index: number = 1 + atRule.name.length
   if (atRule.raw("afterName")) {
     index += atRule.raw("afterName").length
   }
