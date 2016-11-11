@@ -4,7 +4,6 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
-import _ from "lodash"
 import { levelOneAndTwoPseudoElements } from "../../reference/keywordSets"
 import styleSearch from "style-search"
 
@@ -33,7 +32,7 @@ export default function (expectation) {
       if (selector.indexOf(":") === -1) { return }
 
       // match only level 1 and 2 pseudo elements
-      const pseudoElementsWithColons = _.toArray(levelOneAndTwoPseudoElements).map(x => `:${x}`)
+      const pseudoElementsWithColons = Array.from(levelOneAndTwoPseudoElements).map(x => `:${x}`)
       styleSearch({ source: selector.toLowerCase(), target: pseudoElementsWithColons }, match => {
         const prevCharIsColon = selector[match.startIndex - 1] === ":"
 

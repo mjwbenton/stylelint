@@ -1,5 +1,3 @@
-import _ from "lodash"
-
 export const nonLengthUnits = new Set([
   // Relative length units
   "%",
@@ -593,6 +591,6 @@ export const systemColors = new Set([
 
 function uniteSets(...sets) {
   return new Set(sets.reduce((result, set) => {
-    return result.concat(_.toArray(set))
+    return result.concat(Array.from(set))
   }, []))
 }

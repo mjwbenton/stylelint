@@ -4,7 +4,6 @@ import {
   validateOptions,
   whitespaceChecker,
 } from "../../utils"
-import _ from "lodash"
 import { nonSpaceCombinators } from "../../reference/punctuationSets"
 import styleSearch from "style-search"
 
@@ -43,7 +42,7 @@ export function selectorCombinatorSpaceChecker({ locationChecker, root, result, 
     rule.selectors.forEach(selector => {
       styleSearch({
         source: selector,
-        target: _.toArray(nonSpaceCombinators),
+        target: Array.from(nonSpaceCombinators),
         parentheticals: "skip",
       }, match => {
         const { endIndex, startIndex, target } = match
